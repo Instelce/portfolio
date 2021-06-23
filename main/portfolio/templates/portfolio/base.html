@@ -8,6 +8,13 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    {# Font Link #}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'portfolio/css/clash-display.css' %}">
+
     {# Css Link #}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css">
     <link rel="stylesheet" href="{% static 'portfolio/css/main.css' %}">
@@ -19,12 +26,12 @@
     {% endif %}
 </head>
 <body>
-    <div class="topbar">
-        <a href="">Instelce</a>
-    </div>
+<div class="topbar">
+    <a href="">Instelce</a>
+</div>
 
-    {% block content %}{% endblock content %}
+{% block content %}{% endblock content %}
 
-    {% block script %}{% endblock script %}
+{% block script %}{% endblock script %}
 </body>
 </html>

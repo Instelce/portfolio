@@ -1,0 +1,34 @@
+// Variables
+$color-blue-jeans: #35B4FF;
+$color-neutral-gray: #292A30;
+$color-raisin-black: #1D1F25;
+$color-white: #FFFFFF;
+
+$font-main: 'ClashDisplay-Variable', sans-serif;
+$font-secondary: 'Poppins', sans-serif;
+
+// Main Style
+body {
+  font-family: $font-main;
+  font-weight: 400;
+
+  background: $color-raisin-black;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  padding: 20px 14%;
+}
+
+// Topbar
+.topbar {
+  padding: 20px 14%;
+
+  a {
+    color: $color-blue-jeans;
+  }
+}
