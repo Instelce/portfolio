@@ -7,6 +7,12 @@ $color-white: #FFFFFF;
 $font-main: 'ClashDisplay-Variable', sans-serif;
 $font-secondary: 'Poppins', sans-serif;
 
+// Block
+%container {
+  padding: 40px 14%;
+  position: relative;
+}
+
 // Main Style
 body {
   font-family: $font-main;
@@ -20,15 +26,59 @@ a {
   color: inherit;
 }
 
-.container {
-  padding: 20px 14%;
+p {
+  font-family: $font-secondary;
+  font-weight: 200;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+section {
+  @extend %container;
+
+  h2 {
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: $color-white;
+  }
+}
+
+.small__container {
+  padding: 40px 40px;
+  background: $color-neutral-gray;
+  border-radius: 5px;
 }
 
 // Topbar
 .topbar {
-  padding: 20px 14%;
+  @extend %container;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
 
-  a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .topbar__brand {
     color: $color-blue-jeans;
+    font-size: 18px;
+  }
+
+  .topbar__menu {
+    display: flex;
+    align-items: center;
+
+    a {
+      color: $color-blue-jeans;
+      font-size: 16px;
+      margin: 0 10px;
+    }
   }
 }
+
+// Imports
+@import "home";
