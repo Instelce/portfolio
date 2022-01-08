@@ -24,10 +24,10 @@
 <body>
 	<nav class="topbar">
 		<a href="{% url 'portfolio:home'%}" class="topbar__brand">Instelce</a>
- 
+
 		<ul class="topbar__menu">
 			<li class="topbar__link"><a class="link" href="#">Languages</a></li>
-			<li class="topbar__link"><a class="link" href="#">Projets</a></li>
+			<li class="topbar__link"><a class="link" href="{% url 'portfolio:projects' %}">Projets</a></li>
 			<li class="topbar__link"><a class="link" href="#">Contacts</a></li>
 		</ul>
 	</nav>
