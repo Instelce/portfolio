@@ -1,11 +1,15 @@
 from django.db import models
 from django.utils import timezone
+from django.template.defaultfilters import slugify
 
 
 class AboutMe(models.Model):
     picture = models.ImageField(upload_to='images/about-me/')
     about_me = models.TextField()
     cv = models.FileField(upload_to='cv/')
+
+    class Meta:
+        verbose_name_plural = "About me"
 
     def __str__(self):
         return 'About Me'
@@ -33,6 +37,12 @@ class Project(models.Model):
     year = models.IntegerField(default=timezone.now().year)
     live_link = models.URLField(default='', blank=True)
     github_link = models.URLField(default='', blank=True)
+
+    slug = models.SlugField(editable=False, unique=True)
+
+    def save(self, *arg, **kwargs):
+        self.slug = slugify(self.name)
+        super(Project, self).save(*arg, **kwargs)
 
     def __str__(self):
         return self.name + ' - ' + str(self.year) + ' - ' + ('github' if self.github_link else '') + ' - ' + ('live' if self.live_link else '')
