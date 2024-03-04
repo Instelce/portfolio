@@ -1,0 +1,74 @@
+// Fonts
+@import "styles/satoshi";
+
+// Small reset
+html, body, p, ol, ul, li, dl, dt, dd, blockquote, figure, fieldset, legend, textarea, pre, iframe, hr, h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+  font-weight: normal
+}
+
+ul {
+  list-style: none
+}
+
+button, input, select {
+  margin: 0
+}
+
+html {
+  box-sizing: border-box
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+img, video {
+  height: auto;
+  max-width: 100%
+}
+
+iframe {
+  border: 0
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0
+}
+
+td, th {
+  padding: 0
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+// Variables
+:root {
+  --color-white: 255, 255, 255;
+  --color-black: 13, 13, 13;
+  --color-gray-dark: 27, 27, 27;
+  --color-gray: 42, 42, 42;
+  --color-accent: 88, 86, 214;
+
+  --main-font: Inter, Arial, sans-serif;
+  --fancy-font: Satoshi, Poppins, sans-serif;
+}
+
+// Main
+body {
+  background: rgb(var(--color-black));
+
+  font-family: var(--main-font);
+  font-size: 16px;
+  line-height: 100%;
+  color: rgb(var(--color-white));
+}
