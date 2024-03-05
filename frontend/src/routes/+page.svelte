@@ -1,18 +1,26 @@
 <script lang="ts">
-
-  import ShadyBackground from "$lib/components/ShadyBackground.svelte";
+  import LavaLampBackground from "$lib/components/unique/LavaLampBackground.svelte";
   import {Canvas} from "@threlte/core";
+  import Cube from "$lib/components/unique/Cube.svelte";
 
   let seed = 0;
 </script>
 
 <header role="presentation" on:mousemove={() => seed = Math.floor(Math.random() * 100) + 1}>
 
-  <Canvas>
-    <ShadyBackground/>
-  </Canvas>
+  <div class="lavallamp">
+    <Canvas>
+      <LavaLampBackground/>
+    </Canvas>
+  </div>
 
-  <div class="grainy-background"></div>
+  <div class="cube">
+    <Canvas>
+      <Cube/>
+    </Canvas>
+  </div>
+
+  <!-- <div class="grainy-background"></div> -->
 
   <svg>
     <filter id="grainy">
@@ -54,10 +62,33 @@
     filter: url("#grainy");
   }
 
-  :global(canvas) {
+  .lavallamp,
+  .cube {
     width: 100%;
     height: 100%;
-    z-index: 10;
+    position: relative;
+    z-index: -1;
+  }
+
+  .lavallamp {
+    position: absolute;
+  }
+
+  .lavallamp canvas {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+  }
+
+  .cube {
+    z-index: 1;
+  }
+
+  .cube canvas {
+    width: 100%;
+    height: 100%;
     top: 0;
     left: 0;
     position: absolute;

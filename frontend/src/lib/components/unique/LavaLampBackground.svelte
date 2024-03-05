@@ -25,41 +25,49 @@
   })
 
   let paletteHex = [
-    "#FFB5A7",
-    "#FCD5CE",
-    "#F8E2E0",
-    "#F9DCC4",
-    "#F9EDA4",
+    "#0D0D0D",
+    "#2A2A2A",
+    "#1E1D46",
+    "#1E1D46",
+    // "#00FF00",
+    "#5856D6",
   ]
+  // "#1E1D46",
+  // "#26255C",
   let palette = paletteHex.map(color => new THREE.Color(color))
   material.uniforms.uColor = {value: palette}
 
-  autoRender.set(false)
+  // autoRender.set(false)
 
-  useTask(
-    async () => {
-      await tick()
-      time += 0.0002
-      material.uniforms.time.value = time
-      renderer.render(scene, camera.current)
-    },
-    { stage: renderStage, autoInvalidate: false }
-  )
+  useTask((delta) => {
+    time += delta * 0.01
+    material.uniforms.time.value = time;
+  })
+
+  // useTask(
+  //   async () => {
+  //     await tick()
+  //     time += 0.0001
+  //     material.uniforms.time.value = time
+  //     renderer.render(scene, camera.current)
+  //   },
+  //   { stage: renderStage, autoInvalidate: false }
+  // )
 </script>
 
 <T.PerspectiveCamera
   makeDefault
-  position={[0, 0, 1]}
+  position={[0, 0, .5]}
 >
-  <OrbitControls
-  enableDamping
-  />
+  <!-- <OrbitControls
+    enableDamping
+  /> -->
 </T.PerspectiveCamera>
 
 <T.AmbientLight intensity={0.5} />
 
 <T.Mesh material={material}>
-  <T.PlaneGeometry args={[1, 1, 100, 100]}/>
+  <T.PlaneGeometry args={[2.5, 2.5, 100, 100]}/>
 </T.Mesh>
 
 <style lang="scss">

@@ -35,7 +35,7 @@
     padding: 1rem 4rem;
     position: fixed;
 
-    border-bottom: 1px solid rgb(var(--color-gray));
+    border-bottom: 1px solid rgb(var(--color-black));
 
     display: flex;
     align-items: center;
