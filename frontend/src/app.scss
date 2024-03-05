@@ -1,54 +1,94 @@
 // Fonts
-@import "styles/satoshi";
+@import 'styles/satoshi';
 
 // Small reset
-html, body, p, ol, ul, li, dl, dt, dd, blockquote, figure, fieldset, legend, textarea, pre, iframe, hr, h1, h2, h3, h4, h5, h6 {
+html,
+body,
+p,
+ol,
+ul,
+li,
+dl,
+dt,
+dd,
+blockquote,
+figure,
+fieldset,
+legend,
+textarea,
+pre,
+iframe,
+hr,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
-  padding: 0
+  padding: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-size: 100%;
-  font-weight: normal
+  font-weight: normal;
 }
 
 ul {
-  list-style: none
+  list-style: none;
 }
 
-button, input, select {
-  margin: 0
+button,
+input,
+select {
+  margin: 0;
 }
 
 html {
-  box-sizing: border-box
-}
-
-*, *::before, *::after {
   box-sizing: border-box;
 }
 
-img, video {
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img,
+video {
   height: auto;
-  max-width: 100%
+  max-width: 100%;
 }
 
 iframe {
-  border: 0
+  border: 0;
 }
 
 table {
   border-collapse: collapse;
-  border-spacing: 0
+  border-spacing: 0;
 }
 
-td, th {
-  padding: 0
+td,
+th {
+  padding: 0;
 }
 
 a {
   text-decoration: none;
   color: inherit;
+}
+
+button {
+  border: none;
+  background: transparent;
+  font-size: inherit;
+  font-family: inherit;
 }
 
 // Variables
@@ -59,6 +99,8 @@ a {
   --color-gray-dark: 27, 27, 27;
   --color-gray: 42, 42, 42;
   --color-accent: 88, 86, 214;
+  --color-accent-dark: 30, 29, 70;
+  --color-accent-dark-2: 38, 37, 92;
 
   --main-font: Inter, Arial, sans-serif;
   --fancy-font: Satoshi, Poppins, sans-serif;
@@ -70,6 +112,8 @@ body {
 
   font-family: var(--main-font);
   font-size: 16px;
-  line-height: 100%;
   color: rgb(var(--color-white));
 }
+
+// Other imports
+@import 'styles/fonts';

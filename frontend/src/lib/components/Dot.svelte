@@ -1,6 +1,6 @@
 <script lang="ts">
-    export let color: string = "white";
-    export let size: number = 5;
+  export let color: string = 'white';
+  export let size: number = 5;
 </script>
 
 <span style="--color: rgb(var(--color-{color})); --size: {size}px"></span>

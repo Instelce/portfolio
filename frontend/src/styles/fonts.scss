@@ -1,0 +1,19 @@
+:root {
+  --typescale-l2: 0.563rem;
+  --typescale-l1: 0.75rem;
+  --typescale-1: 1rem;
+  --typescale-g1: 1.333rem;
+  --typescale-g2: 1.777rem;
+  --typescale-g3: 2.369rem;
+  --typescale-g4: 3.157rem;
+  --typescale-g5: 4.209rem;
+  --typescale-g5: 5.61rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: var(--fancy-font);
+}

@@ -3,8 +3,8 @@ import { defineConfig } from 'vite';
 import glsl from 'vite-plugin-glsl';
 
 export default defineConfig({
-	plugins: [sveltekit(), glsl()],
-	ssr: {
-		noExternal: ['three']
-	}
+  plugins: [sveltekit(), glsl()],
+  ssr: {
+    noExternal: ['three', 'postprocessing']
+  }
 });
