@@ -1,30 +1,32 @@
 <script lang="ts">
   import LavaLampBackground from '$lib/components/unique/LavaLampBackground.svelte';
-  import { Canvas } from '@threlte/core';
+  import {Canvas} from '@threlte/core';
   import Cube from '$lib/components/unique/Cube.svelte';
   import Button from '$lib/components/Button.svelte';
   import SmoothLine from '$lib/components/SmoothLine.svelte';
+  import Dot from '$lib/components/Dot.svelte';
 
   let seed = 0;
 
   let windowHeight = 0;
+  let windowWidth = 0;
   $: lineHeight = Math.floor(windowHeight * 0.25);
   let lineWidth = 300;
 </script>
 
-<svelte:window bind:innerHeight={windowHeight} />
+<svelte:window bind:innerHeight={windowHeight} bind:innerWidth={windowWidth}/>
 
 <!-- Header -->
 <header role="presentation" on:mousemove={() => (seed = Math.floor(Math.random() * 100) + 1)}>
   <div class="lavallamp">
     <Canvas>
-      <LavaLampBackground />
+      <LavaLampBackground/>
     </Canvas>
   </div>
 
   <div class="cube">
     <Canvas>
-      <Cube />
+      <Cube/>
     </Canvas>
   </div>
 
@@ -63,33 +65,25 @@
 
 <!-- About me -->
 <section id="about-me">
-  <!-- First line -->
-  <div class="first">
-    <div>
-      <img src="/images/picture.jpg" alt="Photo of me" />
-    </div>
-    <div>
-      <div class="dino">
-
-      </div>
-      <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione ab voluptates sunt nisi
-        eos nemo veniam suscipit. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab cupiditate amet nam perspiciatis.
-        Sit asperiores maxime debitis minus est quaerat illum similique, molestias dignissimos, ipsum,
-        totam impedit facilis ratione? Architecto.
-      </p>
-    </div>
+  <div>
+    <h2>About me</h2>
+    <img src="/logo.svg" alt="logo" width="60"/>
   </div>
-
-  <!-- Second line -->
-  <div class="second">
+  <div>
     <div>
-      <img src="/logo.svg" alt="logo" />
+      <img src="/images/picture.jpg" alt="Photo of me"/>
     </div>
     <div>
-      <h2>About me</h2>
+      <div>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione ab voluptates sunt nisi
+          eos nemo veniam suscipit. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab
+          cupiditate amet nam perspiciatis. Sit asperiores maxime debitis minus est quaerat illum
+          similique, molestias dignissimos, ipsum, totam impedit facilis ratione? Architecto.
+        </p>
+      </div>
+      <Button fontSize={windowWidth > 479 ? 2 : 1.777} radius={windowWidth > 479 ? 2 : 100}>Download my CV</Button>
     </div>
-    <Button fontSize={2}>Download my CV</Button>
   </div>
 </section>
 
@@ -97,10 +91,11 @@
 {#if lineHeight > 0}
   <section id="projects">
     <span class="line-up"></span>
+
     <div class="teck-grid">
       <div>
         <div class="teck">
-          <img src="/images/tecks/TypeScript.svg" alt="TypeScript" />
+          <img src="/images/tecks/TypeScript.svg" alt="TypeScript"/>
         </div>
         <SmoothLine
           color="#5856D6"
@@ -113,19 +108,19 @@
       </div>
       <div>
         <div class="teck">
-          <img src="/images/tecks/React-Dark.svg" alt="React-Dark" />
+          <img src="/images/tecks/React-Dark.svg" alt="React-Dark"/>
         </div>
         <SmoothLine
           color="#5856D6"
           width={lineWidth + 100 * 0.4}
-          height={2}
-          start={{ x: 0, y: 1 }}
-          end={{ x: lineWidth + 100 * 0.4, y: 1 }}
+          height={20}
+          start={{ x: 0, y: 13 }}
+          end={{ x: lineWidth + 100 * 0.4, y: 13 }}
         />
       </div>
       <div>
         <div class="teck">
-          <img src="/images/tecks/Svelte.svg" alt="Svelte" />
+          <img src="/images/tecks/Svelte.svg" alt="Svelte"/>
         </div>
         <SmoothLine
           height={lineHeight}
@@ -140,18 +135,19 @@
     <Button
       element="a"
       size="large"
-      fontSize={1.2}
+      fontSize={1}
       radius={100}
       color="accent-dark-2"
       hoverColor="accent"
       fontColorHover="white"
-      href="/projects">See my projects</Button
-    >
+      href="/projects"
+    >See my projects
+    </Button>
 
     <div class="teck-grid">
       <div>
         <div class="teck">
-          <img src="/images/tecks/Sass.svg" alt="Sass" />
+          <img src="/images/tecks/Sass.svg" alt="Sass"/>
         </div>
         <SmoothLine
           color="#5856D6"
@@ -164,19 +160,19 @@
       </div>
       <div>
         <div class="teck">
-          <img src="/images/tecks/Python-Dark.svg" alt="Python-Dark" />
+          <img src="/images/tecks/Python-Dark.svg" alt="Python-Dark"/>
         </div>
         <SmoothLine
           color="#5856D6"
           width={lineWidth + 100 * 0.4}
-          height={2}
-          start={{ x: 0, y: 1 }}
-          end={{ x: lineWidth + 100 * 0.4, y: 1 }}
+          height={20}
+          start={{ x: 0, y: 13 }}
+          end={{ x: lineWidth + 100 * 0.4, y: 13 }}
         />
       </div>
       <div>
         <div class="teck">
-          <img src="/images/tecks/Django.svg" alt="Django" />
+          <img src="/images/tecks/Django.svg" alt="Django"/>
         </div>
         <SmoothLine
           height={lineHeight}
@@ -186,6 +182,31 @@
           controlPoint={{ x: 0, y: 0 }}
         />
       </div>
+    </div>
+
+    <div class="tecks">
+      {#each Array(2) as i}
+        <div class="slide">
+          <div class="teck">
+            <img src="/images/tecks/TypeScript.svg" alt="Django"/>
+          </div>
+          <div class="teck">
+            <img src="/images/tecks/React-Dark.svg" alt="Django"/>
+          </div>
+          <div class="teck">
+            <img src="/images/tecks/Svelte.svg" alt="Django"/>
+          </div>
+          <div class="teck">
+            <img src="/images/tecks/Sass.svg" alt="Django"/>
+          </div>
+          <div class="teck">
+            <img src="/images/tecks/Python-Dark.svg" alt="Django"/>
+          </div>
+          <div class="teck">
+            <img src="/images/tecks/Django.svg" alt="Django"/>
+          </div>
+        </div>
+      {/each}
     </div>
   </section>
 {/if}
@@ -249,80 +270,50 @@
 
   // about me -----------------
   #about-me {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 40vh 20vh;
-    gap: 2rem;
-    place-content: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 4rem;
+    padding: 2rem 12%;
 
-    .first,
-    .second {
-      gap: 2rem;
-    }
-
-    .first div,
-    .second div {
-      height: 100%;
+    & > div:nth-child(1) {
+      padding: 1rem 2rem;
       background: rgb(var(--color-gray-dark));
       border-radius: 2rem;
-      padding: 2rem;
-      display: inline-block;
-    }
 
-    .first {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
 
-      div:nth-child(1) {
-        max-height: 40vh;
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          border-radius: 1.4rem;
-        }
+      h2 {
+        font-size: var(--typescale-g4);
       }
 
-      div:nth-child(2) {
-        padding: 2rem 4rem;
-        grid-column: 2 / 4;
+      img {
+        animation: rotate 30s linear infinite;
+      }
+    }
 
-        display: grid;
-        place-items: center;
+    & > div:nth-child(2) {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 20vw 1fr;
+      gap: 2rem;
+
+      img {
+        width: 100%;
+        border-radius: 2rem;
+      }
+
+      & > div:nth-child(2) {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 2rem;
 
         p {
           font-size: var(--typescale-g2);
-          line-height: 120%;
-          font-weight: 400;
-        }
-      }
-    }
-
-    .second {
-      display: grid;
-      grid-template-columns: 20vh repeat(3, 1fr);
-
-      div:nth-child(1) {
-        display: grid;
-        place-items: center;
-
-        img {
-          /* width: 40px;
-					height: 40px; */
-          animation: rotate 30s linear infinite;
-        }
-      }
-
-      div:nth-child(2) {
-        padding: 0 4rem;
-        grid-column: 2 / 4;
-
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-
-        h2 {
-          font-size: var(--typescale-g4);
         }
       }
     }
@@ -359,10 +350,6 @@
       display: flex;
       position: relative;
 
-      canvas {
-        position: absolute;
-      }
-
       & > div:nth-child(1) {
         position: absolute;
         bottom: 49.33%;
@@ -372,6 +359,7 @@
           transform: translateX(-50%);
         }
       }
+
       & > div:nth-child(2) {
         position: absolute;
         right: 0;
@@ -382,6 +370,7 @@
         align-items: center;
         justify-content: flex-end;
       }
+
       & > div:nth-child(3) {
         position: absolute;
         right: 0;
@@ -419,6 +408,117 @@
       display: block;
       background: rgb(var(--color-gray));
       border-radius: 1.4rem;
+    }
+  }
+
+  // responsive ------------------------
+
+  @media screen and (min-width: 991px) {
+    #projects {
+      .tecks {
+        display: none;
+      }
+    }
+  }
+
+  /* start of large tablet styles */
+  @media screen and (max-width: 991px) {
+
+  }
+
+  /* start of medium tablet styles */
+  @media screen and (max-width: 767px) {
+  }
+
+  /* start of phone styles */
+  @media screen and (max-width: 479px) {
+    #about-me {
+      padding: 2rem 2rem;
+      height: auto;
+      gap: 2rem;
+
+      & > div:nth-child(1) {
+        padding: 0;
+        background: transparent;
+
+        img {
+          width: 20px;
+        }
+
+        h2 {
+          font-size: var(--typescale-g3);
+        }
+      }
+
+      & > div:nth-child(2) {
+        display: flex;
+        flex-direction: column;
+
+        p {
+        }
+      }
+    }
+    #projects {
+      width: 100vw;
+      overflow: hidden;
+      height: auto;
+      padding: 6rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 2rem;
+
+      .line-up {
+        top: 0%;
+        height: 40%;
+      }
+
+      .teck-grid {
+        display: none;
+      }
+
+      .tecks {
+        overflow: hidden;
+        white-space: nowrap;
+
+        .slide {
+          display: inline-block;
+          --t: 10s;
+
+          &:nth-child(1) {
+            animation: slide-one var(--t) linear infinite;
+          }
+
+          &:nth-child(2) {
+            animation: slide-one var(--t) linear infinite;
+          }
+
+          & > div {
+            display: inline-block;
+            margin: 0 .5rem;
+            position: relative;
+          }
+        }
+      }
+    }
+  }
+
+  @keyframes slide-one {
+    0% {
+      transform: translateX(50%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes slide-two {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-200%);
     }
   }
 </style>

@@ -115,7 +115,7 @@
 
     color: var(--color-font);
     font-size: var(--font-size);
-    font-weight: 600;
+    //font-weight: 600;
     font-family: var(--fancy-font);
 
     cursor: pointer;
@@ -126,6 +126,7 @@
       z-index: 1;
       overflow: hidden;
       transition: color 0.3s ease;
+      white-space: nowrap;
     }
     &:hover {
       transform: scale(1.01);

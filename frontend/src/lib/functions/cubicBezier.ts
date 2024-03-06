@@ -8,7 +8,8 @@ export function cubicBezier2(
   controlPoint2: Point,
   end: Point,
   segments: number
-): void {
+): Point[] {
+  const points = []
   ctx.beginPath();
   ctx.moveTo(start.x, start.y);
 
@@ -16,10 +17,12 @@ export function cubicBezier2(
     const t = i / segments;
     const x = cubicBezierInterpolation4(start.x, controlPoint1.x, controlPoint2.x, end.x, t);
     const y = cubicBezierInterpolation4(start.y, controlPoint1.y, controlPoint2.y, end.y, t);
+    points.push({x, y})
     ctx.lineTo(x, y);
   }
 
   ctx.stroke();
+  return points
 }
 
 function cubicBezierInterpolation4(
@@ -44,7 +47,9 @@ export function cubicBezier(
   controlPoint: Point,
   end: Point,
   segments: number
-): void {
+): Point[] {
+  const points = []
+
   ctx.beginPath();
   ctx.moveTo(start.x, start.y);
 
@@ -52,10 +57,12 @@ export function cubicBezier(
     const t = i / segments;
     const x = cubicBezierInterpolation(start.x, controlPoint.x, end.x, t);
     const y = cubicBezierInterpolation(start.y, controlPoint.y, end.y, t);
+    points.push({x, y})
     ctx.lineTo(x, y);
   }
 
   ctx.stroke();
+  return points
 }
 
 function cubicBezierInterpolation(p0: number, p1: number, p2: number, t: number): number {
