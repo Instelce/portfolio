@@ -1,12 +1,7 @@
 <script lang="ts">
-  import LavaLampBackground from '$lib/components/unique/LavaLampBackground.svelte';
-  import {Canvas} from '@threlte/core';
-  import Cube from '$lib/components/unique/Cube.svelte';
   import Button from '$lib/components/Button.svelte';
   import SmoothLine from '$lib/components/SmoothLine.svelte';
-  import Dot from '$lib/components/Dot.svelte';
-
-  let seed = 0;
+  import Header from "./Header.svelte";
 
   let windowHeight = 0;
   let windowWidth = 0;
@@ -16,52 +11,11 @@
 
 <svelte:window bind:innerHeight={windowHeight} bind:innerWidth={windowWidth}/>
 
-<!-- Header -->
-<header role="presentation" on:mousemove={() => (seed = Math.floor(Math.random() * 100) + 1)}>
-  <div class="lavallamp">
-    <Canvas>
-      <LavaLampBackground/>
-    </Canvas>
-  </div>
+<svelte:head>
+  <title>Instelce</title>
+</svelte:head>
 
-  <div class="cube">
-    <Canvas>
-      <Cube/>
-    </Canvas>
-  </div>
-
-  <p>click me</p>
-
-  <!-- <div class="grainy-background"></div> -->
-
-  <svg>
-    <filter id="grainy">
-      <feTurbulence
-        type="turbulence"
-        baseFrequency=".2"
-        numOctaves="4"
-        seed="0"
-        x="0%"
-        y="0%"
-        width="100%"
-        height="100%"
-      />
-      <feSpecularLighting
-        surfaceScale="12"
-        specularConstant="1"
-        specularExponent="20"
-        lighting-color="rgb(var(--color-gray))"
-        x="0%"
-        y="0%"
-        width="100%"
-        height="100%"
-        in="turbulence"
-      >
-        <feDistantLight azimuth="3" elevation="67"></feDistantLight>
-      </feSpecularLighting>
-    </filter>
-  </svg>
-</header>
+<Header/>
 
 <!-- About me -->
 <section id="about-me">
@@ -76,13 +30,19 @@
     <div>
       <div>
         <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione ab voluptates sunt nisi
-          eos nemo veniam suscipit. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab
-          cupiditate amet nam perspiciatis. Sit asperiores maxime debitis minus est quaerat illum
-          similique, molestias dignissimos, ipsum, totam impedit facilis ratione? Architecto.
+          Je suis étudiant à l'IUT de Lannion en BUT Informatique. J'adore le développement en général, mais en ce
+          moment
+          surtout ce qui tourne autour du web. Mon but serait de devenir développeur Full Stack après avoir fini mon
+          cursus. <br><br>
+          En ce moment, je suis à la recherche d'une alternance pour l'années prochaine (septembre 2024), afin de
+          progresser et en apprendre toujours plus
+          sur le monde de l'informatique (tellement vaste et passionnant 😍).
         </p>
       </div>
-      <Button fontSize={windowWidth > 479 ? 2 : 1.777} radius={windowWidth > 479 ? 2 : 100}>Download my CV</Button>
+      <Button element="a" href="/documents/cv.pdf" target="_blank" fontSize={1.777}
+              radius={windowWidth > 479 ? 2 : 100}>Download my
+        CV
+      </Button>
     </div>
   </div>
 </section>
@@ -95,7 +55,7 @@
     <div class="teck-grid">
       <div>
         <div class="teck">
-          <img src="/images/tecks/TypeScript.svg" alt="TypeScript"/>
+          <img src="/images/tecks/typescript.svg" alt="TypeScript"/>
         </div>
         <SmoothLine
           color="#5856D6"
@@ -108,7 +68,7 @@
       </div>
       <div>
         <div class="teck">
-          <img src="/images/tecks/React-Dark.svg" alt="React-Dark"/>
+          <img src="/images/tecks/react.svg" alt="React-Dark"/>
         </div>
         <SmoothLine
           color="#5856D6"
@@ -120,7 +80,7 @@
       </div>
       <div>
         <div class="teck">
-          <img src="/images/tecks/Svelte.svg" alt="Svelte"/>
+          <img src="/images/tecks/svelte.svg" alt="Svelte"/>
         </div>
         <SmoothLine
           height={lineHeight}
@@ -134,8 +94,8 @@
 
     <Button
       element="a"
-      size="large"
-      fontSize={1}
+      size={windowWidth > 479 ? "large" : "medium"}
+      fontSize={1.777}
       radius={100}
       color="accent-dark-2"
       hoverColor="accent"
@@ -147,7 +107,7 @@
     <div class="teck-grid">
       <div>
         <div class="teck">
-          <img src="/images/tecks/Sass.svg" alt="Sass"/>
+          <img src="/images/tecks/sass.svg" alt="Sass"/>
         </div>
         <SmoothLine
           color="#5856D6"
@@ -160,7 +120,7 @@
       </div>
       <div>
         <div class="teck">
-          <img src="/images/tecks/Python-Dark.svg" alt="Python-Dark"/>
+          <img src="/images/tecks/python.svg" alt="Python-Dark"/>
         </div>
         <SmoothLine
           color="#5856D6"
@@ -172,7 +132,7 @@
       </div>
       <div>
         <div class="teck">
-          <img src="/images/tecks/Django.svg" alt="Django"/>
+          <img src="/images/tecks/django.svg" alt="Django"/>
         </div>
         <SmoothLine
           height={lineHeight}
@@ -188,22 +148,22 @@
       {#each Array(2) as i}
         <div class="slide">
           <div class="teck">
-            <img src="/images/tecks/TypeScript.svg" alt="Django"/>
+            <img src="/images/tecks/typescript.svg" alt="Django"/>
           </div>
           <div class="teck">
-            <img src="/images/tecks/React-Dark.svg" alt="Django"/>
+            <img src="/images/tecks/react.svg" alt="Django"/>
           </div>
           <div class="teck">
-            <img src="/images/tecks/Svelte.svg" alt="Django"/>
+            <img src="/images/tecks/svelte.svg" alt="Django"/>
           </div>
           <div class="teck">
-            <img src="/images/tecks/Sass.svg" alt="Django"/>
+            <img src="/images/tecks/sass.svg" alt="Django"/>
           </div>
           <div class="teck">
-            <img src="/images/tecks/Python-Dark.svg" alt="Django"/>
+            <img src="/images/tecks/python.svg" alt="Django"/>
           </div>
           <div class="teck">
-            <img src="/images/tecks/Django.svg" alt="Django"/>
+            <img src="/images/tecks/django.svg" alt="Django"/>
           </div>
         </div>
       {/each}
@@ -219,61 +179,12 @@
     position: relative;
   }
 
-  // header -----------------
-  header {
-    width: 100%;
-    height: 100vh;
-    //background: rgb(var(--color-black));
-    overflow: hidden;
-
-    .grainy-background {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      filter: url('#grainy');
-    }
-
-    .lavallamp,
-    .cube {
-      width: 100%;
-      height: 100%;
-      position: relative;
-      z-index: -1;
-    }
-
-    .lavallamp {
-      position: absolute;
-    }
-
-    .lavallamp canvas {
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      position: absolute;
-    }
-
-    .cube {
-      z-index: 1;
-    }
-
-    .cube canvas {
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      position: absolute;
-    }
-  }
-
   // about me -----------------
   #about-me {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    gap: 4rem;
+    gap: 2rem;
     padding: 2rem 12%;
 
     & > div:nth-child(1) {

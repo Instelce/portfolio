@@ -13,6 +13,7 @@
   export let hoverColor: ColorType = 'accent';
   export let type: 'button' | 'submit' | 'reset' = 'button';
   export let href: string = '#';
+  export let target: string = "_self";
 
   // button
   let buttonRef: null | HTMLButtonElement | HTMLAnchorElement = null;
@@ -76,6 +77,7 @@
     bind:this={buttonRef}
     on:click
     {href}
+    {target}
     {style}
     on:mousemove={(e) => position.set({ x: e.clientX, y: e.clientY })}
     on:mouseenter={() => scale.set(2)}

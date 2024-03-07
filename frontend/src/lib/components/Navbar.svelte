@@ -37,7 +37,7 @@
   <nav class:show={$toggle}>
     <ul>
       <li>
-        <LinkSlide href="/" text="Projects" />
+        <LinkSlide href="/projects" text="Projects" />
       </li>
       <li>
         <LinkSlide href="/#about-me" text="About" />

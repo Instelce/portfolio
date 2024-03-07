@@ -1,17 +1,12 @@
 <script lang="ts">
-  import { OrbitControls } from '@threlte/extras';
-  import { T } from '@threlte/core';
+  import {OrbitControls} from '@threlte/extras';
+  import {T} from '@threlte/core';
   import vertex from '$lib/shaders/vertex.glsl';
   import fragment from '$lib/shaders/fragment.glsl';
-  import { tick } from 'svelte';
   import * as THREE from 'three';
-  import { useThrelte, useTask } from '@threlte/core';
-  import { interactivity, transitions } from '@threlte/extras';
+  import {useTask} from '@threlte/core';
 
-  interactivity();
-  transitions();
-
-  const { renderStage, autoRender, renderer, scene, camera } = useThrelte();
+  export let size = 2.5
 
   let time = 0;
   let material = new THREE.ShaderMaterial({
@@ -19,8 +14,8 @@
     fragmentShader: fragment,
     // wireframe: true,
     uniforms: {
-      time: { value: 0 },
-      resolution: { value: new THREE.Vector2() }
+      time: {value: 0},
+      resolution: {value: new THREE.Vector2()}
     }
   });
 
@@ -35,7 +30,7 @@
   // "#1E1D46",
   // "#26255C",
   let palette = paletteHex.map((color) => new THREE.Color(color));
-  material.uniforms.uColor = { value: palette };
+  material.uniforms.uColor = {value: palette};
 
   // autoRender.set(false)
 
@@ -61,10 +56,10 @@
   /> -->
 </T.PerspectiveCamera>
 
-<T.AmbientLight intensity={0.5} />
+<T.AmbientLight intensity={0.5}/>
 
 <T.Mesh {material}>
-  <T.PlaneGeometry args={[2.5, 2.5, 100, 100]} />
+  <T.PlaneGeometry args={[size, size, 100, 100]}/>
 </T.Mesh>
 
 <style lang="scss">
