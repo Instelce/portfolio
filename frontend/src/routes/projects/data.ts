@@ -6,11 +6,38 @@ export const projects: ProjectType[] = [
     slug: 'plantaludum',
     name: 'Plantaludum',
     description: 'Un jeu pour apprendre et découvrir des plantes',
+    large_description: '',
     year: 2024,
     image: '/images/projects/plantaludum/main.png',
     github_link: 'https://github.com/Instelce/Plantaludum',
     live_link: 'https://plantaludum.org/',
-    tecks: ['react', 'typescript', 'sass', 'django', 'python']
+    tecks: ['react', 'typescript', 'sass', 'vite', 'django', 'python', 'kubernetes', 'bash'],
+    palette: ['#1F1F1F', '#1F1F1F', '#393939', '#393939', '#9DC16E']
+  },
+  {
+    id: 2,
+    slug: 'doc-barbu',
+    name: 'doc-barbu',
+    description: 'Un générateur de documentation',
+    large_description: '',
+    year: 2024,
+    image: '/images/projects/doc-barbu/main.png',
+    github_link: 'https://github.com/Instelce/doc-barbu',
+    tecks: ['bash', 'docker', 'php'],
+    palette: ['#3f3f46', '#3f3f46', '#3b82f6', '#3b82f6', '#18181b']
+  },
+  {
+    id: 3,
+    slug: 'tabas-kho',
+    name: 'Tabas-KHO',
+    description: 'Un site de streaming fictif',
+    large_description: '',
+    year: 2024,
+    image: '/images/projects/tabas-kho/main.png',
+    live_link: 'https://tabas-kho.vercel.app/',
+    github_link: 'https://github.com/Instelce/tabas-kho',
+    tecks: ['html', 'sass', 'javascript', 'vite'],
+    palette: ['#cd8ffa', '#0f0f0f', '#43403d', '#f67960', '#0f0f0f']
   }
 ];
 

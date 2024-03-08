@@ -21,7 +21,7 @@
 
 
 <header>
-  <h1>My Projects</h1>
+  <h1>Mes projets</h1>
 
   <div class="background">
     <Canvas>
@@ -46,6 +46,8 @@
 
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    column-gap: 2rem;
+    row-gap: 4rem;
   }
 
   header {
@@ -69,6 +71,13 @@
       top: 0;
       left: 0;
       z-index: -1;
+    }
+  }
+
+  @media screen and (max-width: 479px) {
+    section {
+      padding: 4rem 2rem;
+      grid-template-columns: 1fr;
     }
   }
 

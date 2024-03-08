@@ -1,24 +1,31 @@
 <script>
   import Dot from './Dot.svelte';
+  import Button from "$lib/components/Button.svelte";
 </script>
 
 <footer>
   <div class="up">
-    <a href="https://github.com/Instelce/">
-      <img src="/images/logos/github.svg" alt="Github logo" width="50" />
-    </a>
+    <Button element="a" href="https://github.com/Instelce/" title="Github" isIcon={true} color="gray-dark">
+      <img src="/images/logos/github.svg" alt="Github logo" width="30"/>
+    </Button>
+    <Button element="a" href="mailto:celestin.besson@proton.me" title="Email" isIcon={true} color="gray-dark">
+      <img src="/images/logos/at-sign.svg" alt="Alt sign : email" width="30"/>
+    </Button>
+    <Button element="a" href="https://www.instagram.com/celest_besson/" title="Instagram" isIcon={true}
+            color="gray-dark">
+      <img src="/images/logos/instagram.svg" alt="Instagram logo" width="30"/>
+    </Button>
   </div>
   <div class="bottom">
     <p>@2024 Célestin Besson</p>
-    <Dot />
+    <Dot/>
     <a href="/">Legal mentions</a>
   </div>
 </footer>
 
-<style>
+<style lang="scss">
   footer {
     width: 100%;
-    display: block;
     position: relative;
 
     display: flex;
@@ -30,6 +37,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 2rem;
   }
 
   .bottom {

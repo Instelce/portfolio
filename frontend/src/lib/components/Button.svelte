@@ -3,6 +3,10 @@
   import { tweened } from 'svelte/motion';
   import { cubicInOut } from 'svelte/easing';
   import { onMount } from 'svelte';
+
+  let clazz = '';
+  export { clazz as class };
+
   export let element: 'button' | 'a' = 'button';
   export let size: 'small' | 'medium' | 'large' = 'medium';
   export let radius: number = 2;
@@ -14,6 +18,8 @@
   export let type: 'button' | 'submit' | 'reset' = 'button';
   export let href: string = '#';
   export let target: string = "_self";
+  export let title = "Button"
+  export let isIcon = false
 
   // button
   let buttonRef: null | HTMLButtonElement | HTMLAnchorElement = null;
@@ -21,6 +27,9 @@
 
   // styles
   let padding = size === 'small' ? '.5rem 1.5rem' : size === 'medium' ? '1rem 3rem' : '2rem 6rem';
+  if (isIcon) {
+    padding = size === 'small' ? '.5rem 1.5rem' : size === 'medium' ? '1rem 1rem' : '2rem 2rem';
+  }
   let style = `
         --color-font: rgb(var(--color-${fontColor}));
         --color-font-hover: rgb(var(--color-${fontColorHover}));
@@ -50,9 +59,11 @@
 
 {#if element === 'button'}
   <button
+    class='button {clazz}'
     bind:this={buttonRef}
     on:click
     {type}
+    {title}
     {style}
     on:mousemove={(e) => position.set({ x: e.clientX, y: e.clientY })}
     on:mouseenter={() => scale.set(2)}
@@ -74,13 +85,15 @@
   </button>
 {:else if element === 'a'}
   <a
+    class='button {clazz}'
     bind:this={buttonRef}
     on:click
     {href}
     {target}
+    {title}
     {style}
     on:mousemove={(e) => position.set({ x: e.clientX, y: e.clientY })}
-    on:mouseenter={() => scale.set(2)}
+    on:mouseenter={() => scale.set(3)}
     on:mouseleave={() => scale.set(0)}
   >
     <div class="text">
@@ -129,6 +142,7 @@
       overflow: hidden;
       transition: color 0.3s ease;
       white-space: nowrap;
+      text-align: center;
     }
     &:hover {
       transform: scale(1.01);

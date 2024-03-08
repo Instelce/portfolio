@@ -8,7 +8,7 @@
 
   let ref: HTMLDivElement;
 
-  let date = new Intl.DateTimeFormat('en-US', {
+  let date = new Intl.DateTimeFormat('fr', {
     day: '2-digit',
     month: 'long',
     year: 'numeric'
@@ -37,10 +37,10 @@
   <nav class:show={$toggle}>
     <ul>
       <li>
-        <LinkSlide href="/projects" text="Projects" />
+        <LinkSlide href="/projects" text="Projets" />
       </li>
       <li>
-        <LinkSlide href="/#about-me" text="About" />
+        <LinkSlide href="/#about-me" text="A propos" />
       </li>
       <li>
         <LinkSlide href="/" text="Contact" />

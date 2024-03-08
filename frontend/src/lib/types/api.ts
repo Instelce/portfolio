@@ -3,11 +3,13 @@ export type ProjectType = {
   slug: string;
   name: string;
   description: string;
+  large_description: string;
   year: number;
   image: string;
   live_link?: string;
   github_link?: string;
   tecks: string[];
+  palette: string[];
 };
 
 export type TeckType = {

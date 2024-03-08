@@ -7,6 +7,14 @@
   import {useTask} from '@threlte/core';
 
   export let size = 2.5
+  export let paletteHex: string[] = [
+    '#0D0D0D',
+    '#2A2A2A',
+    '#1E1D46',
+    '#1E1D46',
+    // "#00FF00",
+    '#5856D6'
+  ];
 
   let time = 0;
   let material = new THREE.ShaderMaterial({
@@ -19,35 +27,15 @@
     }
   });
 
-  let paletteHex = [
-    '#0D0D0D',
-    '#2A2A2A',
-    '#1E1D46',
-    '#1E1D46',
-    // "#00FF00",
-    '#5856D6'
-  ];
-  // "#1E1D46",
-  // "#26255C",
-  let palette = paletteHex.map((color) => new THREE.Color(color));
+  let palette = paletteHex.map((color) => new THREE.Color(color))
+
   material.uniforms.uColor = {value: palette};
 
-  // autoRender.set(false)
 
   useTask((delta) => {
     time += delta * 0.01;
     material.uniforms.time.value = time;
   });
-
-  // useTask(
-  //   async () => {
-  //     await tick()
-  //     time += 0.0001
-  //     material.uniforms.time.value = time
-  //     renderer.render(scene, camera.current)
-  //   },
-  //   { stage: renderStage, autoInvalidate: false }
-  // )
 </script>
 
 <T.PerspectiveCamera makeDefault position={[0, 0, 0.5]}>

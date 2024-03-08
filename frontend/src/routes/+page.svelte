@@ -2,6 +2,7 @@
   import Button from '$lib/components/Button.svelte';
   import SmoothLine from '$lib/components/SmoothLine.svelte';
   import Header from "./Header.svelte";
+  import InfiniteSlide from "$lib/components/InfiniteSlide.svelte";
 
   let windowHeight = 0;
   let windowWidth = 0;
@@ -20,7 +21,7 @@
 <!-- About me -->
 <section id="about-me">
   <div>
-    <h2>About me</h2>
+    <h2>A propos</h2>
     <img src="/logo.svg" alt="logo" width="60"/>
   </div>
   <div>
@@ -34,14 +35,13 @@
           moment
           surtout ce qui tourne autour du web. Mon but serait de devenir développeur Full Stack après avoir fini mon
           cursus. <br><br>
-          En ce moment, je suis à la recherche d'une alternance pour l'années prochaine (septembre 2024), afin de
+          Actuellement, je suis à la recherche d'une alternance pour l'année prochaine (septembre 2024), afin de
           progresser et en apprendre toujours plus
           sur le monde de l'informatique (tellement vaste et passionnant 😍).
         </p>
       </div>
       <Button element="a" href="/documents/cv.pdf" target="_blank" fontSize={1.777}
-              radius={windowWidth > 479 ? 2 : 100}>Download my
-        CV
+              radius={windowWidth > 479 ? 2 : 100}>Télécharger mon CV
       </Button>
     </div>
   </div>
@@ -101,7 +101,7 @@
       hoverColor="accent"
       fontColorHover="white"
       href="/projects"
-    >See my projects
+    >Voir mes projets
     </Button>
 
     <div class="teck-grid">
@@ -145,28 +145,26 @@
     </div>
 
     <div class="tecks">
-      {#each Array(2) as i}
-        <div class="slide">
-          <div class="teck">
-            <img src="/images/tecks/typescript.svg" alt="Django"/>
-          </div>
-          <div class="teck">
-            <img src="/images/tecks/react.svg" alt="Django"/>
-          </div>
-          <div class="teck">
-            <img src="/images/tecks/svelte.svg" alt="Django"/>
-          </div>
-          <div class="teck">
-            <img src="/images/tecks/sass.svg" alt="Django"/>
-          </div>
-          <div class="teck">
-            <img src="/images/tecks/python.svg" alt="Django"/>
-          </div>
-          <div class="teck">
-            <img src="/images/tecks/django.svg" alt="Django"/>
-          </div>
+      <InfiniteSlide>
+        <div class="teck">
+          <img src="/images/tecks/typescript.svg" alt="Django"/>
         </div>
-      {/each}
+        <div class="teck">
+          <img src="/images/tecks/react.svg" alt="Django"/>
+        </div>
+        <div class="teck">
+          <img src="/images/tecks/svelte.svg" alt="Django"/>
+        </div>
+        <div class="teck">
+          <img src="/images/tecks/sass.svg" alt="Django"/>
+        </div>
+        <div class="teck">
+          <img src="/images/tecks/python.svg" alt="Django"/>
+        </div>
+        <div class="teck">
+          <img src="/images/tecks/django.svg" alt="Django"/>
+        </div>
+      </InfiniteSlide>
     </div>
   </section>
 {/if}
@@ -389,29 +387,7 @@
         display: none;
       }
 
-      .tecks {
-        overflow: hidden;
-        white-space: nowrap;
 
-        .slide {
-          display: inline-block;
-          --t: 10s;
-
-          &:nth-child(1) {
-            animation: slide-one var(--t) linear infinite;
-          }
-
-          &:nth-child(2) {
-            animation: slide-one var(--t) linear infinite;
-          }
-
-          & > div {
-            display: inline-block;
-            margin: 0 .5rem;
-            position: relative;
-          }
-        }
-      }
     }
   }
 
