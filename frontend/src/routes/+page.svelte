@@ -40,7 +40,8 @@
           sur le monde de l'informatique (tellement vaste et passionnant 😍).
         </p>
       </div>
-      <Button element="a" href="/documents/cv.pdf" target="_blank" fontSize={windowWidth > 479 ? 1.777 : 1.333}
+      <Button element="a" href="/documents/cv-v2.pdf" target="_blank" download="CV_Célestin_Besson"
+              fontSize={windowWidth > 479 ? 1.777 : 1.333}
               radius={windowWidth > 479 ? 2 : 100}>Télécharger mon CV
       </Button>
     </div>

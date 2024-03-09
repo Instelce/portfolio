@@ -95,6 +95,7 @@
     on:mousemove={(e) => position.set({ x: e.clientX, y: e.clientY })}
     on:mouseenter={() => scale.set(3)}
     on:mouseleave={() => scale.set(0)}
+    {...$$props}
   >
     <div class="text">
       <slot />
