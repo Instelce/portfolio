@@ -40,9 +40,9 @@
           <LavaLampBackground size={10} paletteHex={palette}/>
         </Canvas>
       {/if}
-      <div class="button-container">
+      <div class="button-container" data-sveltekit-reload>
         <a class="prev" href="/projects/{prev}">
-          <img src="/images/icons/chevron-right.svg" alt={prev} style="transform: rotate(180deg)">
+          <img src="/images/icons/chevron-left.svg" alt={prev}>
         </a>
         <a class="next" href="/projects/{next}">
           <img src="/images/icons/chevron-right.svg" alt={next}>
@@ -62,6 +62,31 @@
       <img src="/images/tecks/{teck}.svg" alt={teck}>
     </div>
   {/each}
+</section>
+
+<section class="buttons">
+  {#if data.project.live_link}
+    <Button element="a" href={data.project.live_link} target="_blank">
+      <p>Voir en vrai</p>
+      <svg xmlns="http://www.w3.org/2000/svg" color="white" width="24" height="24" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+           class="feather feather-arrow-up-right">
+        <line x1="7" y1="17" x2="17" y2="7"></line>
+        <polyline points="7 7 17 7 17 17"></polyline>
+      </svg>
+    </Button>
+  {/if}
+  {#if data.project.github_link}
+    <Button element="a" href={data.project.github_link} target="_blank">
+      <p>Github</p>
+      <svg xmlns="http://www.w3.org/2000/svg" color="white" width="24" height="24" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+           class="feather feather-arrow-up-right">
+        <line x1="7" y1="17" x2="17" y2="7"></line>
+        <polyline points="7 7 17 7 17 17"></polyline>
+      </svg>
+    </Button>
+  {/if}
 </section>
 
 <section class="preview">
@@ -170,6 +195,68 @@
 
     img {
       width: 4rem;
+    }
+  }
+
+  .buttons {
+    margin-top: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  @media screen and (max-width: 479px) {
+    header {
+      margin-bottom: 4rem;
+
+      & > div {
+        height: 100%;
+        padding: 4rem 0;
+        display: flex;
+        position: relative;
+      }
+
+      h1 {
+        font-size: var(--typescale-g3);
+        white-space: nowrap;
+      }
+
+      p {
+        font-size: var(--typescale-1);
+        text-align: center;
+        white-space: nowrap;
+      }
+    }
+
+    .background {
+      border-radius: 0rem;
+    }
+
+    .tecks {
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      place-items: center;
+    }
+
+    .buttons {
+      flex-direction: column;
+      gap: 1rem;
+      padding: 0 2rem;
+
+      & > :global(.button) {
+        width: 100%;
+      }
+    }
+
+    .preview {
+      padding: 4rem 2rem;
+
+      img {
+        width: 100%;
+        border-radius: 1rem;
+      }
     }
   }
 </style>

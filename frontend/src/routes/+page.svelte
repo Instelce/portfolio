@@ -40,7 +40,7 @@
           sur le monde de l'informatique (tellement vaste et passionnant 😍).
         </p>
       </div>
-      <Button element="a" href="/documents/cv.pdf" target="_blank" fontSize={1.777}
+      <Button element="a" href="/documents/cv.pdf" target="_blank" fontSize={windowWidth > 479 ? 1.777 : 1.333}
               radius={windowWidth > 479 ? 2 : 100}>Télécharger mon CV
       </Button>
     </div>
@@ -95,7 +95,7 @@
     <Button
       element="a"
       size={windowWidth > 479 ? "large" : "medium"}
-      fontSize={1.777}
+      fontSize={windowWidth > 479 ? 1.777 : 1.333}
       radius={100}
       color="accent-dark-2"
       hoverColor="accent"

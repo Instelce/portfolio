@@ -143,12 +143,25 @@
       transition: color 0.3s ease;
       white-space: nowrap;
       text-align: center;
+
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+
+      & > :global(svg) {
+        stroke: var(--color-font);
+        transition: stroke 0.3s ease;
+      }
     }
     &:hover {
       transform: scale(1.01);
 
       .text {
         color: var(--color-font-hover);
+
+        & > :global(svg) {
+          stroke: var(--color-font-hover);
+        }
       }
     }
 

@@ -116,6 +116,8 @@ body {
   font-family: var(--main-font);
   font-size: 16px;
   color: rgb(var(--color-white));
+  
+  scroll-behavior: smooth;
 }
 
 ::-webkit-scrollbar {

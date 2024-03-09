@@ -43,7 +43,7 @@
         <LinkSlide href="/#about-me" text="A propos" />
       </li>
       <li>
-        <LinkSlide href="/" text="Contact" />
+        <LinkSlide href="/contact" text="Contact" />
       </li>
     </ul>
   </nav>

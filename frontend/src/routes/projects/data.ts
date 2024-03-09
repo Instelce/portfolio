@@ -15,6 +15,18 @@ export const projects: ProjectType[] = [
     palette: ['#1F1F1F', '#1F1F1F', '#393939', '#393939', '#9DC16E']
   },
   {
+    id: 4,
+    slug: 'portfolio',
+    name: 'Ce portfolio',
+    description: 'Le portfolio sur lequel vous naviguez',
+    large_description: '',
+    year: 2024,
+    image: '/images/projects/portfolio/main.png',
+    github_link: 'https://github.com/Instelce/portfolio',
+    tecks: ['svelte', 'typescript', 'sass', 'vite'],
+    palette: ['#0D0D0D', '#2A2A2A', '#1E1D46', '#1E1D46', '#5856D6']
+  },
+  {
     id: 2,
     slug: 'doc-barbu',
     name: 'doc-barbu',
