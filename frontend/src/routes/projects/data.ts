@@ -23,7 +23,7 @@ export const projects: ProjectType[] = [
     year: 2024,
     image: '/images/projects/portfolio/main.png',
     github_link: 'https://github.com/Instelce/portfolio',
-    tecks: ['svelte', 'typescript', 'sass', 'vite'],
+    tecks: ['svelte', 'typescript', 'sass', 'vite', 'threejs'],
     palette: ['#0D0D0D', '#2A2A2A', '#1E1D46', '#1E1D46', '#5856D6']
   },
   {
