@@ -50,7 +50,20 @@ export const projects: ProjectType[] = [
     github_link: 'https://github.com/Instelce/tabas-kho',
     tecks: ['html', 'sass', 'javascript', 'vite'],
     palette: ['#cd8ffa', '#0f0f0f', '#43403d', '#f67960', '#0f0f0f']
-  }
+  },
+  {
+    id: 5,
+    slug: 'ollama-chat',
+    name: 'Small ollama chat',
+    description: 'Un site pour interragir avec des LLM locals',
+    large_description: '',
+    year: 2024,
+    image: '/images/projects/ollama-chat/main.png',
+    live_link: 'https://ollama-chat.vercel.app/',
+    github_link: 'https://github.com/Instelce/ollama-chat',
+    tecks: ['svelte', 'typescript', 'sass', 'vite'],
+    palette: ['#0D0D0D', '#2A2A2A', '#1E1D46', '#1E1D46', '#5856D6']
+  },
 ];
 
 export const tecks: TeckType[] = [
