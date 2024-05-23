@@ -8,6 +8,7 @@ export type ProjectType = {
   image: string;
   live_link?: string;
   github_link?: string;
+  skills: number[];
   tecks: string[];
   palette: string[];
 };

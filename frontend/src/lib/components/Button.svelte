@@ -51,8 +51,6 @@
     }
   );
   let scrollY = 0;
-
-  $: console.log($position, buttonRect?.top);
 </script>
 
 <svelte:window bind:scrollY />

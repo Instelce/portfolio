@@ -2,9 +2,10 @@
   import type {PageData} from './$types';
   import LavaLampBackground from "$lib/components/LavaLampBackground.svelte";
   import {Canvas} from "@threlte/core";
-  import {projects} from "../data";
+  import {projects, skills} from "../data";
   import {onMount} from "svelte";
   import Button from "$lib/components/Button.svelte";
+  import Tag from '$lib/components/Tag.svelte';
 
   export let data: PageData;
 
@@ -55,6 +56,14 @@
 
   </div>
 </header>
+
+<div class="skills">
+  {#each data.project.skills as skillId}
+    <a href="/projects?skills={skills[skillId - 1].toLowerCase()}">
+      <Tag name={skills[skillId - 1]} />
+    </a>
+  {/each}
+</div>
 
 <section class="tecks">
   {#each data.project.tecks as teck}
@@ -184,6 +193,15 @@
       border-radius: 2rem;
       border: 1px solid rgb(var(--color-gray));
     }
+  }
+
+  // skill tags
+  .skills {
+    margin-bottom: 4rem;
+
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
   }
 
   // stack
