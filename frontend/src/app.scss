@@ -1,5 +1,6 @@
 // Fonts
 @import 'styles/satoshi';
+@import 'styles/helpers';
 
 // Small reset
 html,
@@ -106,6 +107,8 @@ button {
 
   --main-font: Inter, Arial, sans-serif;
   --fancy-font: Satoshi, Poppins, sans-serif;
+
+  --radius: .5rem;
 }
 
 // Main
@@ -148,3 +151,4 @@ body {
 
 // Other imports
 @import 'styles/fonts';
+@import 'styles/forms';

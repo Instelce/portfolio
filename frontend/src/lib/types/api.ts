@@ -5,7 +5,8 @@ export type ProjectType = {
   description: string;
   large_description: string;
   year: number;
-  image: string;
+  main_image: string;
+  images: string[],
   live_link?: string;
   github_link?: string;
   skills: number[];

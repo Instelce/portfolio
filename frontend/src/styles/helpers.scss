@@ -1,0 +1,187 @@
+@mixin spacing-utilities() {
+  $spacing-settings: (
+    'spaces': (
+      'margin': 'm',
+      'padding': 'p'
+    ),
+    'positions': (
+      'top': 't',
+      'bottom': 'b',
+      'right': 'r',
+      'left': 'l'
+    )
+  );
+
+  $ctr: 1;
+  @while $ctr <= 12 {
+    .mx-#{$ctr} {
+      margin-left: #{$ctr}rem;
+      margin-right: #{$ctr}rem;
+    }
+    $ctr: $ctr + 1;
+  }
+  $ctr: 1;
+  @while $ctr <= 12 {
+    .px-#{$ctr} {
+      padding-left: #{$ctr}rem;
+      padding-right: #{$ctr}rem;
+    }
+    $ctr: $ctr + 1;
+  }
+
+  $ctr: 1;
+  @while $ctr <= 12 {
+    .my-#{$ctr} {
+      margin-top: #{$ctr}rem;
+      margin-bottom: #{$ctr}rem;
+    }
+    $ctr: $ctr + 1;
+  }
+  $ctr: 1;
+  @while $ctr <= 12 {
+    .py-#{$ctr} {
+      padding-top: #{$ctr}rem;
+      padding-bottom: #{$ctr}rem;
+    }
+    $ctr: $ctr + 1;
+  }
+
+  @each $space-key, $space in map_get($spacing-settings, 'spaces') {
+    $ctr: 1;
+    @while $ctr <= 12 {
+      .#{$space}-#{$ctr} {
+        #{$space-key}: #{$ctr}rem;
+      }
+      $ctr: $ctr + 1;
+    }
+
+    @each $position-key, $position in map_get($spacing-settings, 'positions') {
+      $ctr: 1;
+      @while $ctr <= 12 {
+        .#{$space}#{$position}-#{$ctr} {
+          #{$space-key}-#{$position-key}: #{$ctr}rem;
+        }
+
+        $ctr: $ctr + 1;
+      }
+    }
+  }
+}
+
+@include spacing-utilities();
+
+.page-sticky {
+  width: 100%;
+  top: 0;
+  z-index: 10;
+  position: sticky;
+}
+
+.w-half {
+  width: 50%;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100vh;
+}
+
+.h-auto {
+  height: auto;
+}
+.radius-medium {
+  border-radius: var(--radius);
+}
+
+.radius-high {
+  border-radius: 20px;
+}
+
+// Flexbox
+.flex {
+  display: flex;
+}
+.f-col {
+  flex-direction: column;
+}
+.sb {
+  display: flex;
+  justify-content: space-between;
+}
+.items-center {
+  align-items: center;
+}
+.jc-center {
+  justify-content: center;
+}
+
+// Grid
+.grid {
+  display: grid;
+}
+
+@mixin grid-columns {
+  @for $i from 2 through 6 {
+    .gc-#{$i} {
+      grid-template-columns: repeat(#{$i}, 1fr);
+    }
+  }
+}
+
+@mixin grid-gap {
+  @for $i from 1 through 6 {
+    .gg-#{$i} {
+      grid-gap: #{$i}rem;
+    }
+  }
+}
+
+@include grid-columns();
+@include grid-gap();
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sep-top {
+  border-top: 1px solid rgb(var(--color-gray-3));
+}
+
+.sep-bottom {
+  border-bottom: 1px solid rgb(var(--color-gray-3));
+}
+
+.list-container {
+  //padding: 2rem 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.list-wrapper {
+  grid-column: 2 / 4;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+}
+
+.center-loader {
+  width: 100%;
+  padding: 4rem 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.t-center {
+  text-align: center;
+}
+
+.page-padding {
+  padding: 0 var(--page-horizontal-padding);
+}

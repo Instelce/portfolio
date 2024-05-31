@@ -6,6 +6,8 @@
   import {onMount} from "svelte";
   import Button from "$lib/components/Button.svelte";
   import Tag from '$lib/components/Tag.svelte';
+  import ImageSlider from '$lib/components/ImageSlider.svelte';
+  import { pluralize } from '$lib/functions/helpers';
 
   export let data: PageData;
 
@@ -28,7 +30,7 @@
   <meta property='og:title' content='{data.project.name} ─ Instelce'>
   <meta property="og:description" content="{data.project.description}">
   <meta property='og:type' content='website'>
-  <meta property='og:image' content='{data.project.image}'>
+  <meta property='og:image' content='{data.project.main_image}'>
 
   <title>{data.project.name} ─ Instelce</title>
 </svelte:head>
@@ -57,50 +59,66 @@
   </div>
 </header>
 
-<div class="skills">
-  {#each data.project.skills as skillId}
-    <a href="/projects?skills={skills[skillId - 1].toLowerCase()}">
-      <Tag name={skills[skillId - 1]} />
-    </a>
-  {/each}
-</div>
+<section class="skills">
+  <h3>Compétences aquises</h3>
+
+  <div>
+    {#each data.project.skills as skillId}
+      <a href="/projects?skills={skills[skillId - 1].toLowerCase()}">
+        <Tag name={skills[skillId - 1]} />
+      </a>
+    {/each}
+  </div>
+</section>
 
 <section class="tecks">
-  {#each data.project.tecks as teck}
-    <div>
-      <img src="/images/tecks/{teck}.svg" alt={teck}>
-    </div>
-  {/each}
+  <h3>Technologies utilisées</h3>
+
+  <div>
+    {#each data.project.tecks as teck}
+      <div>
+        <img src="/images/tecks/{teck}.svg" alt={teck}>
+      </div>
+    {/each}
+  </div>
 </section>
 
 <section class="buttons">
-  {#if data.project.live_link}
-    <Button element="a" href={data.project.live_link} target="_blank">
-      <p>Voir en vrai</p>
-      <svg xmlns="http://www.w3.org/2000/svg" color="white" width="24" height="24" viewBox="0 0 24 24" fill="none"
-           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-           class="feather feather-arrow-up-right">
-        <line x1="7" y1="17" x2="17" y2="7"></line>
-        <polyline points="7 7 17 7 17 17"></polyline>
-      </svg>
-    </Button>
-  {/if}
-  {#if data.project.github_link}
-    <Button element="a" href={data.project.github_link} target="_blank">
-      <p>Github</p>
-      <svg xmlns="http://www.w3.org/2000/svg" color="white" width="24" height="24" viewBox="0 0 24 24" fill="none"
-           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-           class="feather feather-arrow-up-right">
-        <line x1="7" y1="17" x2="17" y2="7"></line>
-        <polyline points="7 7 17 7 17 17"></polyline>
-      </svg>
-    </Button>
-  {/if}
+  <h3>Pour en savoir plus</h3>
+
+  <div>
+    {#if data.project.live_link}
+      <Button element="a" href={data.project.live_link} target="_blank">
+        <p>Voir en vrai</p>
+        <svg xmlns="http://www.w3.org/2000/svg" color="white" width="24" height="24" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+             class="feather feather-arrow-up-right">
+          <line x1="7" y1="17" x2="17" y2="7"></line>
+          <polyline points="7 7 17 7 17 17"></polyline>
+        </svg>
+      </Button>
+    {/if}
+    {#if data.project.github_link}
+      <Button element="a" href={data.project.github_link} target="_blank">
+        <p>Github</p>
+        <svg xmlns="http://www.w3.org/2000/svg" color="white" width="24" height="24" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+             class="feather feather-arrow-up-right">
+          <line x1="7" y1="17" x2="17" y2="7"></line>
+          <polyline points="7 7 17 7 17 17"></polyline>
+        </svg>
+      </Button>
+    {/if}
+  </div>
 </section>
 
 <section class="preview">
-  <img src={data.project.image} alt={data.project.name}>
+  <ImageSlider images={[data.project.main_image, ...data.project.images]} />
 </section>
+
+<!-- <section class="preview">
+  <img src={data.project.main_image} alt={data.project.name}>
+</section> -->
 
 
 <style lang="scss">
@@ -182,17 +200,13 @@
     position: relative;
   }
 
+  section h3 {
+    font-size: 1.2rem;
+  }
+
   // preview
   .preview {
     padding: 4rem 4rem;
-    display: grid;
-    place-content: center;
-
-    img {
-      width: 60vw;
-      border-radius: 2rem;
-      border: 1px solid rgb(var(--color-gray));
-    }
   }
 
   // skill tags
@@ -200,8 +214,15 @@
     margin-bottom: 4rem;
 
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     gap: 1rem;
+    
+    div {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
   }
 
   // stack
@@ -209,19 +230,35 @@
     display: flex;
     gap: 1rem;
     align-items: center;
-    justify-content: center;
+    flex-direction: column;
 
     img {
       width: 4rem;
+    }
+
+    div {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      justify-content: center;
     }
   }
 
   .buttons {
     margin-top: 4rem;
+    
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 2rem;
+    flex-direction: column;
+    gap: 1rem;
+
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
   }
 
   @media screen and (max-width: 479px) {

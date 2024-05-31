@@ -16,7 +16,7 @@
 <a href="/projects/{project.slug}" title={project.name} on:mouseenter={() => isHovered = true} on:mouseleave={() => isHovered = false}>
   <article>
     <div class="img-container">
-      <img src={project.image} alt="{project.name} main images">
+      <img src={project.main_image} alt="{project.name} main images">
     </div>
     <div class="content">
       <h2>{project.name}</h2>

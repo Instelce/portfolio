@@ -8,7 +8,10 @@ export const projects: ProjectType[] = [
     description: 'Un jeu pour apprendre et découvrir des plantes',
     large_description: '',
     year: 2024,
-    image: '/images/projects/plantaludum/main.png',
+    main_image: '/images/projects/plantaludum/main.png',
+    images: [
+      // '/images/projects/plantaludum/1.png'
+    ],
     github_link: 'https://github.com/Instelce/Plantaludum',
     live_link: 'https://plantaludum.org/',
     skills: [1, 2, 3, 4, 5],
@@ -22,7 +25,7 @@ export const projects: ProjectType[] = [
     description: 'Le portfolio sur lequel vous naviguez',
     large_description: '',
     year: 2024,
-    image: '/images/projects/portfolio/main.png',
+    main_image: '/images/projects/portfolio/main.png',
     github_link: 'https://github.com/Instelce/portfolio',
     skills: [1, 2, 3, 4],
     tecks: ['svelte', 'typescript', 'sass', 'vite', 'threejs'],
@@ -35,7 +38,10 @@ export const projects: ProjectType[] = [
     description: 'Un générateur de documentation',
     large_description: '',
     year: 2024,
-    image: '/images/projects/doc-barbu/main.png',
+    main_image: '/images/projects/doc-barbu/main.png',
+    images: [
+      '/images/projects/doc-barbu/1.png'
+    ],
     github_link: 'https://github.com/Instelce/doc-barbu',
     skills: [1, 3, 5, 6],
     tecks: ['bash', 'docker', 'php'],
@@ -48,7 +54,8 @@ export const projects: ProjectType[] = [
     description: 'Un site de streaming fictif',
     large_description: '',
     year: 2024,
-    image: '/images/projects/tabas-kho/main.png',
+    main_image: '/images/projects/tabas-kho/main.png',
+    images: [],
     live_link: 'https://tabas-kho.vercel.app/',
     github_link: 'https://github.com/Instelce/tabas-kho',
     skills: [1, 3, 4, 5, 6],

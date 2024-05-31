@@ -13,6 +13,7 @@
         border-radius: 20rem;
         background: rgb(var(--color-accent-dark));
         box-shadow: 0 0 0 1px rgb(var(--color-accent-dark-2));
+        display: inline-block;
 
         transition: background .3s ease, box-shadow .3s ease;
 
