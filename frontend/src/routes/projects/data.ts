@@ -10,7 +10,8 @@ export const projects: ProjectType[] = [
     year: 2024,
     main_image: '/images/projects/plantaludum/main.png',
     images: [
-      // '/images/projects/plantaludum/1.png'
+      '/images/projects/plantaludum/1.png',
+      '/images/projects/plantaludum/2.png'
     ],
     github_link: 'https://github.com/Instelce/Plantaludum',
     live_link: 'https://plantaludum.org/',
@@ -26,6 +27,7 @@ export const projects: ProjectType[] = [
     large_description: '',
     year: 2024,
     main_image: '/images/projects/portfolio/main.png',
+    images: [],
     github_link: 'https://github.com/Instelce/portfolio',
     skills: [1, 2, 3, 4],
     tecks: ['svelte', 'typescript', 'sass', 'vite', 'threejs'],
@@ -60,6 +62,20 @@ export const projects: ProjectType[] = [
     github_link: 'https://github.com/Instelce/tabas-kho',
     skills: [1, 3, 4, 5, 6],
     tecks: ['html', 'sass', 'javascript', 'vite'],
+    palette: ['#cd8ffa', '#0f0f0f', '#43403d', '#f67960', '#0f0f0f']
+  },
+  {
+    id: 5,
+    slug: 'game-of-life',
+    name: 'Jeu de la vie en Rust',
+    description: "Implémentation du jeu de la vie de Conway en Rust avec Bevy et WebAssembly",
+    large_description: '',
+    year: 2024,
+    main_image: '/images/projects/game-of-life/main.png',
+    images: [],
+    github_link: 'https://github.com/Instelce/game-of-life',
+    skills: [1],
+    tecks: ['rust', 'wasm'],
     palette: ['#cd8ffa', '#0f0f0f', '#43403d', '#f67960', '#0f0f0f']
   },
   // {

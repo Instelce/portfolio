@@ -6,6 +6,10 @@
   import {browser} from '$app/environment'
 
   export let project: ProjectType;
+  export let imHovered: boolean = false;
+  export let otherIsHovered: boolean = false;
+
+  $: imHovered = isHovered;
 
   let isHovered = false;
   let documentElement;
@@ -13,7 +17,7 @@
 
 <svelte:document />
 
-<a href="/projects/{project.slug}" title={project.name} on:mouseenter={() => isHovered = true} on:mouseleave={() => isHovered = false}>
+<a href="/projects/{project.slug}" class={!isHovered && otherIsHovered ? 'second' : ''} title={project.name} on:mouseenter={() => isHovered = true} on:mouseleave={() => isHovered = false}>
   <article>
     <div class="img-container">
       <img src={project.main_image} alt="{project.name} main images">
@@ -55,6 +59,11 @@
 {/if}
 
 <style lang="scss">
+  .second {
+    opacity: .4;
+
+    transition: opacity 1s .1s cubic-bezier(0.19, 1, 0.22, 1);
+  }
   article {
     height: 20rem;
     position: relative;

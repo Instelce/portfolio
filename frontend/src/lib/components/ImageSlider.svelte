@@ -33,7 +33,10 @@
         }
     }
 
+    let slides: HTMLElement[] = [];
     let autoPlayInterval: number;
+
+    $: imageHeight = slides.at($currentImage) ? slides[$currentImage].clientHeight : 0;
 
     onMount(() => {
         autoPlayInterval = setInterval(() => {
@@ -44,20 +47,19 @@
     onDestroy(() => {
         clearInterval(autoPlayInterval);
     })
-    
 </script>
 
-<div class="slider-container">
+<div class="slider-container"  style="min-height: {imageHeight}px;">
 
     <div class="slide-wrapper">
         {#each images as image, i}
-            <div class="slide {$currentImage === i ? "active" : ""}">
+            <div class="slide {$currentImage === i ? "active" : ""}" bind:this={slides[i]}>
                 <img src={image} alt={image}>
             </div>
         {/each}
     </div>
 
-    {#if images.length > 1}        
+    {#if images.length > 1}
         <button class="button next" on:click={next}>
             <img src="/images/icons/chevron-right.svg" alt="Right">
         </button>
@@ -72,7 +74,8 @@
 <style lang="scss">
     .slider-container {
         width: 100%;
-        height: 90vh;
+        max-height: 90vh;
+        // height: 40vh;
         overflow: hidden;
         position: relative;
 
@@ -80,6 +83,8 @@
 
         border-radius: 2rem;
         border: 1px solid rgb(var(--color-gray));
+
+        transition: min-height .3s cubic-bezier(0.075, 0.82, 0.165, 1);
 
         &:hover {
             .next, .prev {
@@ -111,10 +116,10 @@
             opacity: 1;
             transform: scale(1);
         }
-        
+
         img {
-            width: 100%;
-            height: 100%;
+            // width: 100%;
+            // height: 100%;
             object-fit: cover;
         }
     }

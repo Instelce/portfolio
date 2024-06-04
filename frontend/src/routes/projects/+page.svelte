@@ -12,6 +12,8 @@
 
   let projects = data.projects;
   let skills: { name: string; selected: boolean }[] = [];
+  let cardIsHovered = false;
+
   data.skills.forEach((s) => {
     if (data.selectedSkills.includes(s.toLowerCase())) {
       skills.push({ name: s, selected: true });
@@ -90,9 +92,9 @@
   {/each}
 </div>
 
-<section>
+<section data-sveltekit-reload>
   {#each projects as project}
-    <ProjectCard {project} />
+    <ProjectCard {project} bind:imHovered={cardIsHovered} otherIsHovered={cardIsHovered} />
   {/each}
 </section>
 
