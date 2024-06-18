@@ -15,7 +15,7 @@ export const projects: ProjectType[] = [
     ],
     github_link: 'https://github.com/Instelce/Plantaludum',
     live_link: 'https://plantaludum.org/',
-    skills: [1, 2, 3, 4, 5],
+    skills: [1, 2, 3, 4],
     tecks: ['react', 'typescript', 'sass', 'vite', 'django', 'python', 'kubernetes', 'bash'],
     palette: ['#1F1F1F', '#1F1F1F', '#393939', '#393939', '#9DC16E']
   },
@@ -78,7 +78,7 @@ export const projects: ProjectType[] = [
     images: [],
     live_link: 'https://tabas-kho.vercel.app/',
     github_link: 'https://github.com/Instelce/tabas-kho',
-    skills: [1, 3, 4, 5, 6],
+    skills: [1, 5, 6],
     tecks: ['html', 'sass', 'javascript', 'vite'],
     palette: ['#cd8ffa', '#0f0f0f', '#43403d', '#f67960', '#0f0f0f']
   },
@@ -124,7 +124,7 @@ export const projects: ProjectType[] = [
     main_image: '/images/projects/portfolio/main.png',
     images: [],
     github_link: 'https://github.com/Instelce/portfolio',
-    skills: [1, 2, 3, 4],
+    skills: [1, 3],
     tecks: ['svelte', 'typescript', 'sass', 'vite', 'threejs'],
     palette: ['#0D0D0D', '#2A2A2A', '#1E1D46', '#1E1D46', '#5856D6']
   },
